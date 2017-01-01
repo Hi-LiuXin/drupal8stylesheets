@@ -13,3 +13,7 @@ The repository has come this function:
 
 **Hope that you can help to complete it,Thanks**
 
+code standards  
+
+	THEMENAME：mytheme
+	css/js libraries: myfont

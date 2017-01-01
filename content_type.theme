@@ -3,15 +3,15 @@
 //stylesheets = "myfont"
 
 //add stylesheets to content type
-  //content type Method One：
+  //Method One：
   function mytheme_preprocess_node(&$variables) { 
     $node = $variables['node']; 
-    if ($node->getType() == 'wanted') { 
+    if ($node->getType() == 'video') { 
         $variables['#attached']['library'][] = 'mytheme/myfont'; 
     } 
   }
   
-  //content type Method Two：
+  //Method Two：
   function mytheme_preprocess_node(&$variables) {
     $node = $variables['node'];
     $variables['content_type'] = $node->bundle();
@@ -20,8 +20,7 @@
     }
   }
   
-  //content type Method Three：
-  
+  //Method Three：
   function mytheme_preprocess_node__video(&$variables){
       $variables['#attached']['library'][] = 'mytheme/myfont';
   }

@@ -1,0 +1,11 @@
+<?php 
+//THEMENAME = "mytheme"
+//stylesheets = "myfont"
+
+//add stylesheets to a route
+function mytheme_preprocess_page(&$variables) {
+  $variables['page']['#cache']['contexts'][] = 'route';
+  if (\Drupal::routeMatch()->getRouteName() === 'entity.node.preview') {
+    $variables['#attached']['library'][] = 'mytheme/myfont';
+  }
+}

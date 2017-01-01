@@ -1,0 +1,9 @@
+<?php 
+//THEMENAME = "mytheme"
+//stylesheets = "myfont"
+//add stylrsheets to front page
+function mytheme_preprocess_page(&$variables) {
+    if ($variables['is_front']) {
+        $variables['#attached']['library'][] = 'mytheme/myfont';
+    }
+}

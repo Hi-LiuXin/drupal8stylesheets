@@ -1,0 +1,27 @@
+<?php 
+//THEMENAME = "mytheme"
+//stylesheets = "myfont"
+
+//add stylesheets to content type
+  //content type Method One：
+  function mytheme_preprocess_node(&$variables) { 
+    $node = $variables['node']; 
+    if ($node->getType() == 'wanted') { 
+        $variables['#attached']['library'][] = 'mytheme/myfont'; 
+    } 
+  }
+  
+  //content type Method Two：
+  function mytheme_preprocess_node(&$variables) {
+    $node = $variables['node'];
+    $variables['content_type'] = $node->bundle();
+    if ($variables['content_type'] == 'video'){
+      $variables['#attached']['library'][] = 'mytheme/myfont';
+    }
+  }
+  
+  //content type Method Three：
+  
+  function mytheme_preprocess_node__video(&$variables){
+      $variables['#attached']['library'][] = 'mytheme/myfont';
+  }

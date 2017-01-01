@@ -1,0 +1,13 @@
+<?php 
+//THEMENAME = "mytheme"
+//stylesheets = "myfont"
+
+//add stylesheets to a node
+
+function mytheme_preprocess_node(&$variables) {
+  $node = $variables['node']; 
+  $id = $node->id();
+  if($id = '26'){
+    $variables['#attached']['library'][] = 'mytheme/myfont';
+  }
+}

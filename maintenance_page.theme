@@ -1,0 +1,8 @@
+<?php 
+//THEMENAME = "mytheme"
+//stylesheets = "myfont"
+
+//add stylesheets to mantance page
+function mytheme_preprocess_maintenance_page(&$variables) {
+  $variables['#attached']['library'][] = 'mytheme/myfont';
+}

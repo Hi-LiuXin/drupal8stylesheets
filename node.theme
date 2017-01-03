@@ -3,7 +3,18 @@
 //stylesheets = "myfont"
 
 //add stylesheets to a node
+// html level
+function mytheme_preprocess_html(&$variables) {
+  $node = \Drupal::routeMatch()->getParameter('node');
+  if ($node) {
+    if ($node->id() == 3) {
+      $variables['#attached']['library'][] = 'mytheme/myfont';
+    }
+  }
+}
 
+
+//node level   If you use panelizer,Please use mytheme_preprocess_html() function above
 function mytheme_preprocess_node(&$variables) {
   $node = \Drupal::routeMatch()->getParameter('node');
   if ($node) {
